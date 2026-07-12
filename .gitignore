@@ -1,0 +1,19 @@
+# Environments & Secrets
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Databases & Local RAG storage
+chroma_db/
+temp_*.pdf
+
+# Python bytecode caching
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Operating System files
+.DS_Store
+Thumbs.db
