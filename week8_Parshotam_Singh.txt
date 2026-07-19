@@ -1,0 +1,51 @@
+1. Explain the concept of a stateful directed graph in agent pipelines. How does it differ from a simple linear pipeline?
+
+A stateful directed graph is a workflow where each step (node) can store and use shared information (state), and the flow can move in different directions based on conditions. A linear pipeline always follows the same fixed sequence from start to finish without branching.
+
+2. Describe the role of nodes and edges in an agent workflow. Give an example of each.
+Nodes are the tasks or actions the agent performs.
+Example: Search documents, summarize text, or generate an answer.
+Edges connect the nodes and decide where the workflow goes next.
+Example: After searching documents, move to the summarization node.
+
+3. What is conditional routing in an agent system? Design a simple rule-based routing logic for three different query types.
+
+Conditional routing means sending a request to different paths based on its type.
+Example:
+If the query is about weather, send it to the Weather API.
+If the query is about math, send it to the Calculator tool.
+If the query is about general knowledge, send it to the LLM.
+
+4. Why are cycles (loops) important in agent pipelines? Provide a use case where a retry loop is necessary.
+Loops let the agent retry or improve a task until it succeeds.
+Example: If an API request fails because of a network issue, the agent retries up to 3 times before giving an error.
+
+5. Explain how a single-agent system can simulate multi-agent behavior internally.
+A single agent can act like multiple agents by performing different roles one after another, such as planning, researching, writing, and reviewing, all within the same system.
+
+6. What are JSON schema tools? How do they help in structuring tool inputs and outputs?
+A JSON schema defines the required format of data.
+It helps by:
+Ensuring the correct input is sent to a tool.
+Making the output consistent and easy to understand.
+Reducing errors caused by missing or incorrect data.
+
+7. Compare sequential tool calls and parallel tool calls. When would you prefer one over the other?
+Sequential tool calls: Tools run one after another. Use when each step depends on the previous one.
+Parallel tool calls: Multiple tools run at the same time. Use when tasks are independent and you want faster results.
+
+8. How would you implement error handling in a tool-using agent? Provide at least two strategies.
+Retry mechanism: Retry the tool a few times if it fails.
+Fallback option: Use another tool or return a helpful message if the first tool is unavailable.
+
+9. What is trajectory evaluation in agent systems? Why is it important beyond just checking final output?
+Trajectory evaluation checks every step the agent takes, not just the final answer.
+It is important because it helps find mistakes in reasoning, tool usage, or decision-making, making the agent more reliable.
+
+10. Define task completion rate and cost metrics. How would you measure and optimize them in a real-world system?
+Task completion rate: The percentage of tasks the agent finishes successfully.
+Cost metrics: The time, API calls, and money spent to complete a task.
+To optimize:
+Use fewer unnecessary tool calls.
+Choose faster and cheaper models when possible.
+Improve prompts to reduce retries and errors.
